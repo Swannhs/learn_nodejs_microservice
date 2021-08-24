@@ -1,13 +1,15 @@
 const express = require('express');
-
+const {randomBytes} = require('crypto');
 const app = express();
 
-app.get('/posts', (req, res) => {
+const posts = {};
 
+app.get('/posts', (req, res) => {
+    res.send(posts);
 })
 
 app.post('/posts', (req, res) => {
-
+    const id = randomBytes(4).toString('hex');
 })
 
 app.listen(4000, () => {
